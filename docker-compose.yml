@@ -4,8 +4,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    restart: unless-stopped
+    # i add network bridge
     ports:
       - "3000:3000"
+    networks:
+      - scello-network
     depends_on:
       - postgres
     environment:
@@ -13,12 +17,23 @@ services:
       DB_USER: postgres
       DB_NAME: scelloo
       DB_PASSWORD: secrect
+      HOST: localhost
   postgres:
-    image: postgres:13
+    image: postgres:14
+    # i added nework bridge
+    # networks:
+    #   my-network:
+    #     ipv4_address: 172.17.0.2
     environment:
       POSTGRES_USER: postgres
-      DB_NAME: scelloo
+      POSTGRES_DB: scelloo
       POSTGRES_PASSWORD: secrect
+      # LD_LIBRARY_PATH: .
     ports:
       - "5432:5432"
+    networks:
+      - scello-network
+networks:
+  scello-network:
+
    

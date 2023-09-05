@@ -19,7 +19,6 @@ services:
       Databse: scelloo
       Password: ymRktvUAj5KHXMFWSR2lvFf45Hj8VTC2
       Hostname: dpg-cjr51fu1208c739ed2vg-a
-      # DB_HOST: postgres
   postgres:
     image: postgres:14
     # i added nework bridge

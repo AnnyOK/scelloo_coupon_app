@@ -1,0 +1,44 @@
+version: '3'
+services:
+  scello_coupon_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # restart: unless-stopped
+    # i add network bridge
+    ports:
+      - "5000:5000"
+    networks:
+      - scello-network
+    depends_on:
+      - postgres
+
+    environment:
+      # - DATABASE_URL=postgres://postgres:secrect@postgres:5432/scelloo
+      DB_USER: postgres
+      DB_NAME: scelloo
+      DB_PASSWORD: secrect
+      DB_HOST: postgres
+  postgres:
+    image: postgres:14
+    # i added nework bridge
+    # networks:
+    #   my-network:
+    #     ipv4_address: 172.17.0.2
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: scelloo
+      POSTGRES_PASSWORD: secrect
+      # LD_LIBRARY_PATH: .
+    # command: postgres -c listen_addresses=*
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - scello-network
+networks:
+  scello-network:
+
+volumes:
+  postgres-data:

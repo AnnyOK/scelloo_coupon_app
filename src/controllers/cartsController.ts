@@ -29,3 +29,7 @@ export const getCart = async (req: Request, res: Response) => {
     res.status(500).send(e)
   }
 }
+export const getAllCart=async(req:Request,res:Response)=>{
+  const allCart = await Cart.findAll()
+  res.send(allCart)
+}

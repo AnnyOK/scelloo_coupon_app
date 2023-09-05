@@ -31,4 +31,10 @@ res.status(500).send("something happened")
 
 
 }
+export const getAllCoupon =async(req:Request,res:Response)=>{
+  const allcoupons = await Coupon.findAll()
+  res.send(allcoupons)
+}
+
+
 

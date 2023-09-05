@@ -37,8 +37,8 @@ services:
       - "5432:5432"
     networks:
       - scello-network
-networks:
-  scello-network:
+# networks:
+#   scello-network:
 
-volumes:
-  postgres-data:
+# volumes:
+#   postgres-data:

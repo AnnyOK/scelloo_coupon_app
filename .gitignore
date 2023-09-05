@@ -2,4 +2,3 @@ node_modules
 .env
 sample.yml
 node_modules/
-dist/

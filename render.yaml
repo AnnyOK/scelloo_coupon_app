@@ -18,7 +18,7 @@ services:
       DB_USER: postgres
       DB_NAME: scelloo
       DB_PASSWORD: secrect
-      DB_HOST: postgres
+      # DB_HOST: postgres
   postgres:
     image: postgres:14
     # i added nework bridge

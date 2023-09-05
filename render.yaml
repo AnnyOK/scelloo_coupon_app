@@ -1,6 +1,6 @@
 version: '3'
 services:
-  scello_coupon_app:
+  # scello_coupon_app:
     build:
       context: .
       dockerfile: Dockerfile
